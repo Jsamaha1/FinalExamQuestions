@@ -26,18 +26,28 @@ public class Rectangle_Test {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	@Test(expected = IllegalRectangle.class)
 	public void Rectangle_Test1() {
 		
-		Rectangle r2 = new Rectangle(-5, -10);
-		assertTrue(r2.ComputeArea() == 50);
+		Rectangle r2;
+		try {
+			r2 = new Rectangle(-5, -10);
+		} catch (IllegalRectangle e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
 	public void Rectangle_Test2() {
 		
 	
-		Rectangle r2 = new Rectangle(-5, -10);
+		Rectangle r2 = null;
+		try {
+			r2 = new Rectangle(5, 10);
+		} catch (IllegalRectangle e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(r2.ComputeArea() == 50);
 	}
 	

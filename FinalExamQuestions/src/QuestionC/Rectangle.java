@@ -2,8 +2,11 @@ package QuestionC;
 
 public class Rectangle extends Shape {
 
-	public Rectangle(int newx, int newy) {
+	public Rectangle(int newx, int newy) throws IllegalRectangle{
 		super(newx, newy);
+		if(newx <= 0 || newy <= 0) {
+			throw new IllegalRectangle("Invalid Dimensions");
+		}
 	}
 
 	@Override
